@@ -52,11 +52,6 @@ async def _consultar_base_datos_raw(message: str, fileSearchStore: str) -> str:
 # --- HERRAMIENTAS PÚBLICAS ---
 
 @tool
-async def consultar_noticia_dia(query: str):
-    """Buscar noticias diarias y temas generales."""
-    return await _consultar_base_datos_raw(query, "fileSearchStores/asesorianovagestionnoticiad-ia7jbufxxtjw")
-
-@tool
 async def consultar_informacion_despacho(query: str):
     """Buscar información corporativa: horarios, ubicación, servicios, empleados."""
     return await _consultar_base_datos_raw(query, FILESEARCHSTORE_INF_GEN)
@@ -112,4 +107,5 @@ async def consultar_calendario_contribuyentes(dummy_arg: str = ""):
                 return "\n\n".join(eventos_limpios)
             return "Error al obtener calendario externo."
     except Exception as e:
+
         return f"Excepción calendario: {str(e)}"
